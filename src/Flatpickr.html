@@ -1,0 +1,46 @@
+<input ref:input type="date" />
+
+<script>
+import flatpickr from 'flatpickr';
+
+const hooks = new Set([
+	'onChange',
+	'onOpen',
+	'onClose',
+	'onMonthChange',
+	'onYearChange',
+	'onReady',
+	'onValueUpdate',
+	'onDayCreate'
+]);
+
+export default {
+	data() {
+		return {
+			options: {
+
+			}
+		};
+	},
+
+	oncreate() {
+		this.fp = flatpickr(this.refs.input, this.get('options'));
+
+		this.observe('options', options => {
+			for (let [key, val] in Object.entries(options)) {
+
+				// Hooks must be arrays
+				if (hooks.has(key) && !Array.isArray(val))
+					val = [val];
+
+				this.fp.set(key, val);
+			}
+		});
+	},
+
+	ondestroy() {
+		if (this.fp && 'destroy' in this.fp)
+			this.fp.destroy();
+	}
+};
+</script>

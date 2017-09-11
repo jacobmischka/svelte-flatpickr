@@ -1,0 +1,24 @@
+{
+  "name": "@jacobmischka/svelte-flatpickr",
+  "version": "0.1.0",
+  "description": "Flatpickr component for Svelte",
+  "main": "dist/index.js",
+  "repository": "https://github.com/jacobmischka/svelte-flatpickr.git",
+  "author": "Jacob Mischka <jacob@mischka.me>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "svelte": "^1.39.0",
+    "svelte-loader": "^2.1.0",
+    "webpack": "^3.5.6"
+  },
+  "dependencies": {
+    "flatpickr": "^3.0.7"
+  },
+  "files": [
+    "dist",
+    "src"
+  ]
+}
