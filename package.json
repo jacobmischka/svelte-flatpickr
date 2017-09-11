@@ -1,6 +1,6 @@
 {
   "name": "@jacobmischka/svelte-flatpickr",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Flatpickr component for Svelte",
   "main": "dist/index.js",
   "repository": "https://github.com/jacobmischka/svelte-flatpickr.git",
