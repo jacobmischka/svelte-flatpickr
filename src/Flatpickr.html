@@ -24,23 +24,48 @@ export default {
 	},
 
 	oncreate() {
-		this.fp = flatpickr(this.refs.input, this.get('options'));
+		this.fp = flatpickr(this.refs.input, this.addHooks(this.get('options')));
 
 		this.observe('options', options => {
+			options = this.addHooks(options);
+
 			for (let [key, val] in Object.entries(options)) {
-
-				// Hooks must be arrays
-				if (hooks.has(key) && !Array.isArray(val))
-					val = [val];
-
 				this.fp.set(key, val);
 			}
 		});
+	},
+
+	methods: {
+		addHooks(options) {
+			options = Object.assign({}, options);
+
+			for (let hook of hooks) {
+				let firer = (selectedDates, dateStr, instance) => {
+					this.fire(stripOn(hook), [selectedDates, dateStr, instance]);
+				};
+
+				if (hook in options) {
+					// Hooks must be arrays
+					if (!Array.isArray(options[hook]))
+						options[hook] = [options[hook]];
+
+					options[hook].push(firer);
+				} else {
+					options[hook] = [firer];
+				}
+			}
+
+			return options;
+		}
 	},
 
 	ondestroy() {
 		if (this.fp && 'destroy' in this.fp)
 			this.fp.destroy();
 	}
+};
+
+function stripOn(hook) {
+	return hook.charAt(2).toLowerCase() + hook.substring(3);
 };
 </script>
