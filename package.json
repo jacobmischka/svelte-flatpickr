@@ -21,5 +21,8 @@
   },
   "dependencies": {
     "flatpickr": "^3.0.7"
-  }
+  },
+  "files": [
+    "dist"
+  ]
 }
