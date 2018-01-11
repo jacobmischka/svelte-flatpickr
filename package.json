@@ -1,6 +1,6 @@
 {
   "name": "svelte-flatpickr",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "description": "Flatpickr component for Svelte",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
@@ -11,16 +11,16 @@
     "build": "rollup -c"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-preset-env": "^1.6.0",
-    "rollup": "^0.50.0",
-    "rollup-plugin-babel": "^3.0.2",
-    "rollup-plugin-svelte": "^3.1.0",
+    "@babel/core": "^7.0.0-beta.37",
+    "@babel/preset-env": "^7.0.0-beta.37",
+    "rollup": "^0.53.4",
+    "rollup-plugin-babel": "^4.0.0-beta.0",
+    "rollup-plugin-svelte": "^4.0.0",
     "svelte": "^1.39.0",
     "svelte-loader": "^2.1.0"
   },
   "dependencies": {
-    "flatpickr": "^3.0.7"
+    "flatpickr": "^4.2.3"
   },
   "files": [
     "dist"

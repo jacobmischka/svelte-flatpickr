@@ -17,13 +17,16 @@ const hooks = new Set([
 export default {
 	data() {
 		return {
-			options: {
-
-			}
+			value: null,
+			options: {}
 		};
 	},
 
 	oncreate() {
+		this.updateValue = value => {
+			this.set({value});
+		};
+
 		this.fp = flatpickr(this.refs.input, this.addHooks(this.get('options')));
 
 		this.observe('options', options => {
@@ -32,6 +35,11 @@ export default {
 			for (let [key, val] in Object.entries(options)) {
 				this.fp.set(key, val);
 			}
+		});
+
+		this.observe('value', (value, oldValue) => {
+			if (value !== oldValue)
+				this.fp.setDate(value);
 		});
 	},
 
@@ -54,6 +62,9 @@ export default {
 					options[hook] = [firer];
 				}
 			}
+
+			if (options.onChange && !options.onChange.includes(this.updateValue))
+				options.onChange.push(this.updateValue);
 
 			return options;
 		}
