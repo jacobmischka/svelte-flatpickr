@@ -9,6 +9,7 @@ Don't forget to import flatpickr's stylesheets as well.
 ```html
 <div>
 	<Flatpickr options="{{ flatpickrOptions }}"
+		bind:value="date"
 		on:change="handleChange(...event)" />
 </div>
 
@@ -21,6 +22,7 @@ import 'flatpickr/dist/themes/light.css';
 export default {
 	data() {
 		return {
+			date: null,
 			flatpickrOptions: {
 				enableTime: true,
 				onChange(selectedDates, dateStr, instance) {
@@ -42,6 +44,8 @@ export default {
 };
 </script>
 ```
+
+The selected date(s) can be obtained using hooks or binding to `value`.
 
 ### Hooks
 

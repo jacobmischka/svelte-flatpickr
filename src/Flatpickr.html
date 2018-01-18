@@ -24,6 +24,9 @@ export default {
 
 	oncreate() {
 		this.updateValue = value => {
+			if (Array.isArray(value) && value.length === 1)
+				value = value[0];
+
 			this.set({value});
 		};
 
