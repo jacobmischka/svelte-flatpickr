@@ -2,6 +2,8 @@
 
 ## Usage
 
+Ideally, if you're using svelte already, configure your bundler to resolve the package's `svelte` field (or import from `svelte-flatpickr/src/Flatpickr.html`) and compile the template from within your own project. See [sveltejs/svelte#604](https://github.com/sveltejs/svelte/issues/604) for more information.
+
 Don't forget to import flatpickr's stylesheets as well.
 
 ### Example

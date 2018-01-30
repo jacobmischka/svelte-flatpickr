@@ -4,6 +4,7 @@
   "description": "Flatpickr component for Svelte",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
+  "svelte": "src/Flatpickr.html",
   "repository": "https://github.com/jacobmischka/svelte-flatpickr.git",
   "author": "Jacob Mischka <jacob@mischka.me>",
   "license": "MIT",
@@ -23,6 +24,7 @@
     "flatpickr": "^4.2.3"
   },
   "files": [
-    "dist"
+    "dist",
+    "src"
   ]
 }
