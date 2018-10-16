@@ -12,16 +12,16 @@
     "build": "rollup -c"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.37",
-    "@babel/preset-env": "^7.0.0-beta.37",
-    "rollup": "^0.53.4",
-    "rollup-plugin-babel": "^4.0.0-beta.0",
-    "rollup-plugin-svelte": "^4.0.0",
-    "svelte": "^1.39.0",
-    "svelte-loader": "^2.1.0"
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "rollup": "^0.66.6",
+    "rollup-plugin-babel": "^4.0.3",
+    "rollup-plugin-svelte": "^4.3.2",
+    "svelte": "^2.13.5",
+    "svelte-loader": "^2.11.0"
   },
   "dependencies": {
-    "flatpickr": "^4.2.3"
+    "flatpickr": "^4.5.2"
   },
   "files": [
     "dist",
