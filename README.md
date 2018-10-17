@@ -6,20 +6,25 @@ Ideally, if you're using svelte already, configure your bundler to resolve the p
 
 Don't forget to import flatpickr's stylesheets as well.
 
+## Versions
+
+* For Svelte v1.x use v0.x.x
+* For Svelte v2.x use v1.x.x
+
 ### Example
 
 ```html
 <div>
-	<Flatpickr options="{{ flatpickrOptions }}"
+	<Flatpickr options="{ flatpickrOptions }"
 		bind:value="date"
 		on:change="handleChange(...event)" />
 </div>
 
 <script>
-import Flatpickr from 'svelte-flatpickr';
+import Flatpickr from 'svelte-flatpickr'
 
-import 'flatpickr/dist/flatpickr.css';
-import 'flatpickr/dist/themes/light.css';
+import 'flatpickr/dist/flatpickr.css'
+import 'flatpickr/dist/themes/light.css'
 
 export default {
 	data() {
@@ -36,14 +41,14 @@ export default {
 
 	methods: {
 		handleChange(selectedDates, dateStr, instance) {
-			console.log('Svelte onChange handler');
+			console.log('Svelte onChange handler')
 		}
 	},
 
 	components: {
 		Flatpickr
 	}
-};
+}
 </script>
 ```
 
