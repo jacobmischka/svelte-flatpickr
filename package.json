@@ -1,6 +1,6 @@
 {
   "name": "svelte-flatpickr",
-  "version": "0.6.1",
+  "version": "1.0.0",
   "description": "Flatpickr component for Svelte",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
