@@ -1,4 +1,4 @@
-<input ref:input type="date" class="{class}" />
+<input ref:input type="date" class="{class}" placeholder="{placeholder}" />
 
 <script>
 	import flatpickr from 'flatpickr';
@@ -17,6 +17,7 @@
 	export default {
 		data() {
 			return {
+				placeholder: '',
 				value: null,
 				class: null,
 				options: {}
