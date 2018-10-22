@@ -17,6 +17,7 @@ Don't forget to import flatpickr's stylesheets as well.
 <div>
 	<Flatpickr options="{ flatpickrOptions }"
 		bind:value="date"
+		placeholder="optional placeholder" 
 		on:change="handleChange(...event)" />
 </div>
 
