@@ -1,5 +1,7 @@
 # svelte-flatpickr
 
+[CircleCI](https://circleci.com/gh/jacobmischka/svelte-flatpickr.svg?style=shield)](https://circleci.com/gh/jacobmischka/svelte-flatpickr)
+
 ## Usage
 
 Ideally, if you're using svelte already, configure your bundler to resolve the package's `svelte` field (or import from `svelte-flatpickr/src/Flatpickr.html`) and compile the template from within your own project. See [sveltejs/svelte#604](https://github.com/sveltejs/svelte/issues/604) for more information.
