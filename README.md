@@ -1,6 +1,6 @@
 # svelte-flatpickr
 
-[CircleCI](https://circleci.com/gh/jacobmischka/svelte-flatpickr.svg?style=shield)](https://circleci.com/gh/jacobmischka/svelte-flatpickr)
+[[CircleCI](https://circleci.com/gh/jacobmischka/svelte-flatpickr.svg?style=shield)](https://circleci.com/gh/jacobmischka/svelte-flatpickr)
 
 ## Usage
 
