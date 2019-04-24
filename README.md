@@ -2,14 +2,16 @@
 
 ## Usage
 
-Ideally, if you're using svelte already, configure your bundler to resolve the package's `svelte` field (or import from `svelte-flatpickr/src/Flatpickr.html`) and compile the template from within your own project. See [sveltejs/svelte#604](https://github.com/sveltejs/svelte/issues/604) for more information.
+Ideally, if you're using svelte already, configure your bundler to resolve the
+package's `svelte` field (or import from `svelte-flatpickr/src/Flatpickr.svelte`) and compile the template from within your own project. See [sveltejs/svelte#604](https://github.com/sveltejs/svelte/issues/604) for more information.
 
 Don't forget to import flatpickr's stylesheets as well.
 
 ## Versions
 
-* For Svelte v1.x use v0.x.x
-* For Svelte v2.x use v1.x.x
+-   For Svelte v3 use v2
+-   For Svelte v2.x use v1.x.x
+-   For Svelte v1.x use v0.x.x
 
 ### Example
 
@@ -17,7 +19,7 @@ Don't forget to import flatpickr's stylesheets as well.
 <div>
 	<Flatpickr options="{ flatpickrOptions }"
 		bind:value="date"
-		placeholder="optional placeholder" 
+		placeholder="optional placeholder"
 		on:change="handleChange(...event)" />
 </div>
 
