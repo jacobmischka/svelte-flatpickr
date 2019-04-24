@@ -1,6 +1,6 @@
 {
   "name": "svelte-flatpickr",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "Flatpickr component for Svelte",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
@@ -9,15 +9,17 @@
   "author": "Jacob Mischka <jacob@mischka.me>",
   "license": "MIT",
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "prepublishOnly": "yarn build"
   },
   "devDependencies": {
     "rollup": "^1.10.1",
-    "rollup-plugin-node-resolve": "^4.2.3",
     "rollup-plugin-svelte": "^5.0.3"
   },
   "dependencies": {
-    "flatpickr": "^4.5.2",
+    "flatpickr": "^4.5.2"
+  },
+  "peerDependencies": {
     "svelte": "^3.0.0"
   },
   "files": [

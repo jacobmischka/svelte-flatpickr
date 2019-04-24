@@ -27,7 +27,6 @@
 	$: if (fp) fp.setDate(value);
 
 	onMount(() => {
-		console.log(input);
 		fp = flatpickr(input, addHooks(options));
 
 		return () => {

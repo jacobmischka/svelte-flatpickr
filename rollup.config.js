@@ -1,5 +1,4 @@
 import svelte from 'rollup-plugin-svelte';
-import resolve from 'rollup-plugin-node-resolve';
 import pkg from './package.json';
 
 export default {
@@ -16,10 +15,11 @@ export default {
 		}
 	],
 	plugins: [
-		svelte(),
-		resolve()
+		svelte()
 	],
 	external: [
-		'flatpickr'
+		'flatpickr',
+		'svelte',
+		'svelte/internal'
 	]
 };
