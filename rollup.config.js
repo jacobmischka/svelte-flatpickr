@@ -1,25 +1,23 @@
 import svelte from 'rollup-plugin-svelte';
-import babel from 'rollup-plugin-babel';
+import resolve from 'rollup-plugin-node-resolve';
+import pkg from './package.json';
 
 export default {
-	input: './src/index.js',
+	input: './src/Flatpickr.svelte',
 	output: [
 		{
-			file: 'dist/index.cjs.js',
-			format: 'cjs'
+			file: pkg.main,
+			format: 'umd',
+			name: 'SvelteFlatpickr'
 		},
 		{
-			file: 'dist/index.js',
+			file: pkg.module,
 			format: 'es'
 		}
 	],
 	plugins: [
-		svelte({
-			include: 'src/*.html'
-		}),
-		babel({
-			exclude: 'node_modules/**'
-		})
+		svelte(),
+		resolve()
 	],
 	external: [
 		'flatpickr'
