@@ -1,4 +1,4 @@
-<input bind:this={input} type="date" {value} class={className} {placeholder} />
+<input bind:this={input} {...props} />
 
 <script>
 	/** @format */
@@ -16,10 +16,8 @@
 		'onDayCreate'
 	]);
 
-	export let value = '', placeholder = '', options = {};
-
-	let className = '';
-	export { className as class };
+	export let value = '';
+	let { options = {}, ...props } = $$props;
 
 	let input, fp;
 
