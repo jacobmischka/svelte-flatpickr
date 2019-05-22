@@ -1,4 +1,7 @@
-<input ref:input type="date" class="{class}" placeholder="{placeholder}" />
+
+<slot>
+	<input ref:input type="date" class="{class}" placeholder="{placeholder}" />
+</slot>
 
 <script>
 	import flatpickr from 'flatpickr';
@@ -17,6 +20,7 @@
 	export default {
 		data() {
 			return {
+				element: null,
 				placeholder: '',
 				value: null,
 				class: null,
@@ -25,8 +29,12 @@
 		},
 
 		oncreate() {
-			const { options } = this.get()
-			this.fp = flatpickr(this.refs.input, this.addHooks(options));
+			const { options, element } = this.get()
+			const elem = element || this.refs.input
+			this.fp = flatpickr(elem, {
+				...element ? { wrap: true } : {},
+				...this.addHooks(options)
+			});
 		},
 
 		onupdate({ changed, current, previous }) {
