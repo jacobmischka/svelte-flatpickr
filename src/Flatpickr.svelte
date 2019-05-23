@@ -1,4 +1,6 @@
-<input bind:this={input} {...props} />
+<slot>
+	<input bind:this={input} {...props} />
+</slot>
 
 <script>
 	/** @format */
@@ -17,15 +19,20 @@
 	]);
 
 	export let value = '';
+	export let element = null;
+
 	let { options = {}, ...props } = $$props;
 
 	let input, fp;
 
-
 	$: if (fp) fp.setDate(value);
 
 	onMount(() => {
-		fp = flatpickr(input, addHooks(options));
+		const elem = element || input
+		fp = flatpickr(elem, {
+			...addHooks(options),
+			...element ? { wrap: true } : {}
+		});
 
 		return () => {
 			fp.destroy();

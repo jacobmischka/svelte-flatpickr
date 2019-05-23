@@ -18,40 +18,28 @@ Don't forget to import flatpickr's stylesheets as well.
 ```html
 <div>
 	<Flatpickr options="{ flatpickrOptions }"
-		bind:value="date"
+		bind:value={date}
 		placeholder="optional placeholder"
 		on:change="handleChange(...event)" />
 </div>
 
 <script>
-import Flatpickr from 'svelte-flatpickr'
+	import Flatpickr from 'svelte-flatpickr'
 
-import 'flatpickr/dist/flatpickr.css'
-import 'flatpickr/dist/themes/light.css'
+	import 'flatpickr/dist/flatpickr.css'
+	import 'flatpickr/dist/themes/light.css'
 
-export default {
-	data() {
-		return {
-			date: null,
-			flatpickrOptions: {
-				enableTime: true,
-				onChange(selectedDates, dateStr, instance) {
-					console.log('Options onChange handler')
-				}
-			}
+	let date = null
+	const flatpickrOptions = {
+		enableTime: true,
+		onChange: (selectedDates, dateStr, instance) => {
+			console.log('Options onChange handler')
 		}
-	},
-
-	methods: {
-		handleChange(selectedDates, dateStr, instance) {
-			console.log('Svelte onChange handler')
-		}
-	},
-
-	components: {
-		Flatpickr
 	}
-}
+
+	function handleChange(selectedDates, dateStr, instance) {
+		console.log('Svelte onChange handler')
+	}
 </script>
 ```
 
@@ -64,3 +52,35 @@ Hooks can be specified normally in the options object, or by listening to the sv
 When binding svelte handler, `event` will be `[ selectedDates, dateStr, instance ]` (see [flatpickr events docs][flatpickr-events]). You'll likely want to call your handler with `handleChange(...event)` like in the example above, or with `handleChange(event[0][0])` to get the selected date.
 
 [flatpickr-events]: https://chmln.github.io/flatpickr/events/
+
+### Custom Element
+
+As per the [flatpickr documentation](https://flatpickr.js.org/examples/#flatpickr-external-elements), it is also possible to wrap a custom element rather than have the component create the input for you. This allows for decoration of the control such as adding a clear button or similar.
+
+You can add the custome element by wrapping it in the Flatpickr component, as it is the default slot. However, it is necessary to pass the selector for the custom element, as the `element` attribute to Flatpickr's options.
+
+Specifying the selector for a custom element automatically adds the `{wrap: true}` option to flatpickr.
+
+```html
+<Flatpickr options="{ flatpickrOptions }" bind:value={date} element="#my-picker">
+		<div class="flatpickr" id="my-picker">
+			<input type="text" placeholder="Select Date.." data-input>
+
+			<a class="input-button" title="clear" data-clear>
+					<i class="icon-close"></i>
+			</a>
+		</div>
+</Flatpickr>
+
+<script>
+	import Flatpickr from 'svelte-flatpickr'
+
+	import 'flatpickr/dist/flatpickr.css'
+	import 'flatpickr/dist/themes/light.css'
+
+	let date = null
+	const flatpickrOptions = {
+		element: '#my-picker'
+	}
+</script>
+```
