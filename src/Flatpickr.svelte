@@ -19,7 +19,7 @@
 	]);
 
 	export let value = '';
-	export let element;
+	export let element = null;
 
 	let { options = {}, ...props } = $$props;
 
