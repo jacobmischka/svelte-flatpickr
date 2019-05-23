@@ -18,7 +18,7 @@ Don't forget to import flatpickr's stylesheets as well.
 ```html
 <div>
 	<Flatpickr options="{ flatpickrOptions }"
-		bind:value="date"
+		bind:value={date}
 		placeholder="optional placeholder"
 		on:change="handleChange(...event)" />
 </div>
@@ -62,7 +62,7 @@ You can add the custome element by wrapping it in the Flatpickr component, as it
 Specifying the selector for a custom element automatically adds the `{wrap: true}` option to flatpickr.
 
 ```html
-<Flatpickr options="{ flatpickrOptions }" bind:value="date">
+<Flatpickr options="{ flatpickrOptions }" bind:value={date} element="#my-picker">
 		<div class="flatpickr" id="my-picker">
 			<input type="text" placeholder="Select Date.." data-input>
 
