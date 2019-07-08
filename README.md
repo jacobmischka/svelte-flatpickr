@@ -45,6 +45,8 @@ Don't forget to import flatpickr's stylesheets as well.
 
 The selected date(s) can be obtained using hooks or binding to `value`.
 
+The format of the date expected can be controlled with the prop `dateFormat`, which will take a date format acceptable to Flatpickr.
+
 ### Hooks
 
 Hooks can be specified normally in the options object, or by listening to the svelte event.

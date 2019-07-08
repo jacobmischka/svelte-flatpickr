@@ -20,12 +20,13 @@
 
 	export let value = '';
 	export let element = null;
+	export let dateFormat = null;
 
 	let { options = {}, ...props } = $$props;
 
 	let input, fp;
 
-	$: if (fp) fp.setDate(value);
+	$: if (fp) fp.setDate(value, false, dateFormat);
 
 	onMount(() => {
 		const elem = element || input
