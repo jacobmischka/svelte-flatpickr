@@ -22,7 +22,11 @@
 	export let element = null;
 	export let dateFormat = null;
 
-	let { options = {}, ...props } = $$props;
+  let allProps = $$props;
+  
+  const options = allProps.options || {};
+  const props = Object.assign({}, $$props);
+  delete props.options;
 
 	let input, fp;
 
@@ -30,10 +34,10 @@
 
 	onMount(() => {
 		const elem = element || input
-		fp = flatpickr(elem, {
-			...addHooks(options),
-			...element ? { wrap: true } : {}
-		});
+		fp = flatpickr(elem, Object.assign(
+			addHooks(options),
+			element ? { wrap: true } : {}
+    ));
 
 		return () => {
 			fp.destroy();
