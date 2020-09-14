@@ -74,7 +74,7 @@ date(s)'s formatted string.
 
 Hooks can be specified normally in the options object, or by listening to the svelte event.
 
-When binding svelte handler, `event` will be `[ selectedDates, dateStr, instance ]` (see [flatpickr events docs][flatpickr-events]). You'll likely want to call your handler with `handleChange(...event)` like in the example above, or with `handleChange(event[0][0])` to get the selected date.
+When binding svelte handler, `event.details` will be `[ selectedDates, dateStr, instance ]` (see [flatpickr events docs][flatpickr-events]).
 
 [flatpickr-events]: https://chmln.github.io/flatpickr/events/
 
@@ -82,7 +82,7 @@ When binding svelte handler, `event` will be `[ selectedDates, dateStr, instance
 
 As per the [flatpickr documentation](https://flatpickr.js.org/examples/#flatpickr-external-elements), it is also possible to wrap a custom element rather than have the component create the input for you. This allows for decoration of the control such as adding a clear button or similar.
 
-You can add the custome element by wrapping it in the Flatpickr component, as it is the default slot. However, it is necessary to pass the selector for the custom element, as the `element` attribute to Flatpickr's options.
+You can add the custom element by wrapping it in the Flatpickr component, as it is the default slot. However, it is necessary to pass the selector for the custom element, as the `element` attribute to Flatpickr's options.
 
 Specifying the selector for a custom element automatically adds the `{wrap: true}` option to flatpickr.
 
