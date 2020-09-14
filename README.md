@@ -9,38 +9,58 @@ Don't forget to import flatpickr's stylesheets as well.
 
 ## Versions
 
--   For Svelte v3 use v2
+-   For Svelte v3 use v3.x.x
 -   For Svelte v2.x use v1.x.x
 -   For Svelte v1.x use v0.x.x
 
 ### Example
 
-```html
-<div>
-	<Flatpickr options="{ flatpickrOptions }"
-		bind:value={date}
-		placeholder="optional placeholder"
-		on:change="handleChange(...event)" />
-</div>
+See the `test` directory for a full working example.
+
+```svelte
+<main>
+	<form on:submit={handleSubmit}>
+		<Flatpickr {options} bind:value on:change={handleChange} name="date" />
+
+		<button type="submit">
+			Submit
+		</button>
+	</form>
+</main>
 
 <script>
-	import Flatpickr from 'svelte-flatpickr'
+	import Flatpickr from '../../src/Flatpickr.svelte';
 
-	import 'flatpickr/dist/flatpickr.css'
-	import 'flatpickr/dist/themes/light.css'
+	let value;
 
-	let date = null
-	const flatpickrOptions = {
+	const options = {
 		enableTime: true,
-		onChange: (selectedDates, dateStr, instance) => {
-			console.log('Options onChange handler')
+		onChange(selectedDates, dateStr) {
+			console.log('flatpickr hook', selectedDates, dateStr);
 		}
+	};
+
+	$: console.log({ value });
+
+	function handleChange(event) {
+		const [ selectedDates, dateStr ] = event.detail;
+		console.log({ selectedDates, dateStr });
 	}
 
-	function handleChange(selectedDates, dateStr, instance) {
-		console.log('Svelte onChange handler')
+	function handleSubmit(event) {
+		event.preventDefault();
+
+		console.log(event.target.elements['date'].value);
 	}
 </script>
+
+<style>
+	main {
+		text-align: center;
+		padding: 1em;
+		margin: 0 auto;
+	}
+</style>
 ```
 
 The selected date(s) can be obtained using hooks or binding to `value`.

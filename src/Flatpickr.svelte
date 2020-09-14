@@ -1,10 +1,10 @@
 <slot>
-  <input bind:this="{input}" {...props} />
+  <input bind:this="{input}" {...$$restProps} />
 </slot>
 
 <script>
   /** @format */
-  import {onMount, createEventDispatcher} from 'svelte';
+  import { onMount, createEventDispatcher } from 'svelte';
   import flatpickr from 'flatpickr';
 
   const hooks = new Set([
@@ -18,16 +18,8 @@
     'onDayCreate',
   ]);
 
-  export let value = '';
-  export let formattedValue = '';
-  export let element = null;
-  export let dateFormat = null;
-
-  let allProps = $$props;
-
-  const options = allProps.options || {};
-  const props = Object.assign({}, $$props);
-  delete props.options;
+  export let value = '', formattedValue = '', element = null, dateFormat = null;
+  export let options = {};
 
   let input, fp;
 
