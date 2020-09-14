@@ -1,5 +1,5 @@
 <slot>
-  <input bind:this="{input}" {...$$restProps} />
+  <input bind:this={input} {...$$restProps} />
 </slot>
 
 <script>
