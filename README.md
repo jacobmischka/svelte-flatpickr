@@ -20,7 +20,7 @@ See the `test` directory for a full working example.
 ```svelte
 <main>
 	<form on:submit={handleSubmit}>
-		<Flatpickr {options} bind:value on:change={handleChange} name="date" />
+		<Flatpickr {options} bind:value bind:formattedValue on:change={handleChange} name="date" />
 
 		<button type="submit">
 			Submit
@@ -31,7 +31,7 @@ See the `test` directory for a full working example.
 <script>
 	import Flatpickr from '../../src/Flatpickr.svelte';
 
-	let value;
+	let value, formattedValue;
 
 	const options = {
 		enableTime: true,
@@ -40,7 +40,7 @@ See the `test` directory for a full working example.
 		}
 	};
 
-	$: console.log({ value });
+	$: console.log({ value, formattedValue });
 
 	function handleChange(event) {
 		const [ selectedDates, dateStr ] = event.detail;
@@ -53,14 +53,6 @@ See the `test` directory for a full working example.
 		console.log(event.target.elements['date'].value);
 	}
 </script>
-
-<style>
-	main {
-		text-align: center;
-		padding: 1em;
-		margin: 0 auto;
-	}
-</style>
 ```
 
 The selected date(s) can be obtained using hooks or binding to `value`.

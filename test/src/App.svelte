@@ -1,6 +1,6 @@
 <main>
 	<form on:submit={handleSubmit}>
-		<Flatpickr {options} bind:value on:change={handleChange} name="date" />
+		<Flatpickr {options} bind:value bind:formattedValue on:change={handleChange} name="date" />
 
 		<button type="submit">
 			Submit
@@ -11,7 +11,7 @@
 <script>
 	import Flatpickr from '../../src/Flatpickr.svelte';
 
-	let value;
+	let value, formattedValue;
 
 	const options = {
 		enableTime: true,
@@ -20,7 +20,7 @@
 		}
 	};
 
-	$: console.log({ value });
+	$: console.log({ value, formattedValue });
 
 	function handleChange(event) {
 		const [ selectedDates, dateStr ] = event.detail;
