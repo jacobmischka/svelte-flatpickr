@@ -1,80 +1,78 @@
 <slot>
-  <input bind:this={input} {...$$restProps} />
+	<input bind:this={input} {...$$restProps} />
 </slot>
 
 <script>
-  /** @format */
-  import { onMount, createEventDispatcher } from 'svelte';
-  import flatpickr from 'flatpickr';
+	import { onMount, createEventDispatcher } from 'svelte';
+	import flatpickr from 'flatpickr';
 
-  const hooks = new Set([
-    'onChange',
-    'onOpen',
-    'onClose',
-    'onMonthChange',
-    'onYearChange',
-    'onReady',
-    'onValueUpdate',
-    'onDayCreate',
-  ]);
+	const hooks = new Set([
+		'onChange',
+		'onOpen',
+		'onClose',
+		'onMonthChange',
+		'onYearChange',
+		'onReady',
+		'onValueUpdate',
+		'onDayCreate',
+	]);
 
-  export let value = '', formattedValue = '', element = null, dateFormat = null;
-  export let options = {};
+	export let value = '', formattedValue = '', element = null, dateFormat = null;
+	export let options = {};
 
-  let input, fp;
+	let input, fp;
 
-  $: if (fp) fp.setDate(value, false, dateFormat);
+	$: if (fp) fp.setDate(value, false, dateFormat);
 
-  onMount(() => {
-    const elem = element || input;
-    fp = flatpickr(
-      elem,
-      Object.assign(addHooks(options), element ? {wrap: true} : {}),
-    );
+	onMount(() => {
+		const elem = element || input;
+		fp = flatpickr(
+			elem,
+			Object.assign(addHooks(options), element ? {wrap: true} : {}),
+		);
 
-    return () => {
-      fp.destroy();
-    };
-  });
+		return () => {
+			fp.destroy();
+		};
+	});
 
-  const dispatch = createEventDispatcher();
+	const dispatch = createEventDispatcher();
 
-  $: if (fp)
-    for (const [key, val] of Object.entries(addHooks(options))) {
-      fp.set(key, val);
-    }
+	$: if (fp)
+		for (const [key, val] of Object.entries(addHooks(options))) {
+			fp.set(key, val);
+		}
 
-  function addHooks(opts = {}) {
-    opts = Object.assign({}, opts);
+	function addHooks(opts = {}) {
+		opts = Object.assign({}, opts);
 
-    for (const hook of hooks) {
-      const firer = (selectedDates, dateStr, instance) => {
-        dispatch(stripOn(hook), [selectedDates, dateStr, instance]);
-      };
+		for (const hook of hooks) {
+			const firer = (selectedDates, dateStr, instance) => {
+				dispatch(stripOn(hook), [selectedDates, dateStr, instance]);
+			};
 
-      if (hook in opts) {
-        // Hooks must be arrays
-        if (!Array.isArray(opts[hook])) opts[hook] = [opts[hook]];
+			if (hook in opts) {
+				// Hooks must be arrays
+				if (!Array.isArray(opts[hook])) opts[hook] = [opts[hook]];
 
-        opts[hook].push(firer);
-      } else {
-        opts[hook] = [firer];
-      }
-    }
+				opts[hook].push(firer);
+			} else {
+				opts[hook] = [firer];
+			}
+		}
 
-    if (opts.onChange && !opts.onChange.includes(updateValue))
-      opts.onChange.push(updateValue);
+		if (opts.onChange && !opts.onChange.includes(updateValue))
+			opts.onChange.push(updateValue);
 
-    return opts;
-  }
+		return opts;
+	}
 
-  function updateValue(newValue, dateStr) {
-    value =
-      Array.isArray(newValue) && newValue.length === 1 ? newValue[0] : newValue;
-    formattedValue = dateStr;
-  }
+	function updateValue(newValue, dateStr) {
+		value = Array.isArray(newValue) && newValue.length === 1 ? newValue[0] : newValue;
+		formattedValue = dateStr;
+	}
 
-  function stripOn(hook) {
-    return hook.charAt(2).toLowerCase() + hook.substring(3);
-  }
+	function stripOn(hook) {
+		return hook.charAt(2).toLowerCase() + hook.substring(3);
+	}
 </script>
