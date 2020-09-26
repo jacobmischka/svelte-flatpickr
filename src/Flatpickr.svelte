@@ -20,12 +20,16 @@
 	export let value = '', formattedValue = '', element = null, dateFormat = null;
 	export let options = {};
 
-	let input, fp;
+	export let input = undefined, fp = undefined;
+	export { fp as flatpickr };
 
-	$: if (fp) fp.setDate(value, false, dateFormat);
+	$: if (fp) {
+		fp.setDate(value, false, dateFormat);
+	}
 
 	onMount(() => {
 		const elem = element || input;
+
 		fp = flatpickr(
 			elem,
 			Object.assign(addHooks(options), element ? {wrap: true} : {}),
@@ -38,10 +42,11 @@
 
 	const dispatch = createEventDispatcher();
 
-	$: if (fp)
+	$: if (fp) {
 		for (const [key, val] of Object.entries(addHooks(options))) {
 			fp.set(key, val);
 		}
+	}
 
 	function addHooks(opts = {}) {
 		opts = Object.assign({}, opts);
