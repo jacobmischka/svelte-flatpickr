@@ -62,15 +62,17 @@ The format of the date expected can be controlled with the prop `dateFormat`, wh
 The prop `formattedValue` can also be bound to, which contains the selected
 date(s)'s formatted string.
 
+The props `input` and `flatpickr` (or `fp`) can also be bound to, which represent the underlying input element (unless using a custom external element as described below) and the [flatpickr instance](https://flatpickr.js.org/instance-methods-properties-elements/), respectively.
+Assigning to these will break the Flatpickr component, please don't.
+
 ### Hooks
 
 Hooks can be specified normally in the options object, or by listening to the svelte event.
 
-When binding svelte handler, `event.details` will be `[ selectedDates, dateStr, instance ]` (see [flatpickr events docs][flatpickr-events]).
+When binding svelte handler, `event.details` will be `[ selectedDates, dateStr, instance ]` (see [flatpickr events docs](https://chmln.github.io/flatpickr/events/)).
 
-[flatpickr-events]: https://chmln.github.io/flatpickr/events/
 
-### Custom Element
+### External Elements
 
 As per the [flatpickr documentation](https://flatpickr.js.org/examples/#flatpickr-external-elements), it is also possible to wrap a custom element rather than have the component create the input for you. This allows for decoration of the control such as adding a clear button or similar.
 
