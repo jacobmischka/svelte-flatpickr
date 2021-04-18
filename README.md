@@ -38,7 +38,8 @@ See the `test` directory for a full working example.
 </main>
 
 <script>
-	import Flatpickr from '../../src/Flatpickr.svelte';
+	import Flatpickr from 'svelte-flatpickr';
+	import 'flatpickr/dist/flatpickr.css';
 
 	let value, formattedValue;
 
