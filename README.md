@@ -1,22 +1,26 @@
 # svelte-flatpickr
 
-## Demo
-
--   https://flatpickr.js.org/examples
-
+Svelte component for [flatpickr](https://flatpickr.js.org/) datetime picker.
 
 ## Usage
 
 Ideally, if you're using svelte already, configure your bundler to resolve the
 package's `svelte` field (or import from `svelte-flatpickr/src/Flatpickr.svelte`) and compile the template from within your own project. See [sveltejs/svelte#604](https://github.com/sveltejs/svelte/issues/604) for more information.
 
-Don't forget to import flatpickr's stylesheets as well.
+Don't forget to import flatpickr's stylesheets as well
+(`flatpickr/dist/flatpickr.css`, and optionally any theme stylesheets you want).
 
 ## Versions
 
 -   For Svelte v3 use v3.x.x
 -   For Svelte v2.x use v1.x.x
 -   For Svelte v1.x use v0.x.x
+
+## Flatpickr documentation
+
+- [Examples](https://flatpickr.js.org/examples/)
+- [Events and hooks](https://flatpickr.js.org/events/)
+- [Configuration options](https://flatpickr.js.org/options/)
 
 ### Example
 
