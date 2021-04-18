@@ -1,5 +1,10 @@
 # svelte-flatpickr
 
+## Demo
+
+-   https://flatpickr.js.org/examples
+
+
 ## Usage
 
 Ideally, if you're using svelte already, configure your bundler to resolve the
