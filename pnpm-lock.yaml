@@ -1,0 +1,78 @@
+dependencies:
+  flatpickr: 4.6.9
+devDependencies:
+  rollup: 1.32.1
+  rollup-plugin-svelte: 5.2.3_rollup@1.32.1+svelte@3.38.2
+  svelte: 3.38.2
+lockfileVersion: 5.2
+packages:
+  /@types/estree/0.0.47:
+    dev: true
+    resolution:
+      integrity: sha512-c5ciR06jK8u9BstrmJyO97m+klJrrhCf9u3rLu3DEAJBirxRqSCvDQoYKmxuYwQI5SZChAWu+tq9oVlGRuzPAg==
+  /@types/node/15.3.0:
+    dev: true
+    resolution:
+      integrity: sha512-8/bnjSZD86ZfpBsDlCIkNXIvm+h6wi9g7IqL+kmFkQ+Wvu3JrasgLElfiPgoo8V8vVfnEi0QVS12gbl94h9YsQ==
+  /acorn/7.4.1:
+    dev: true
+    engines:
+      node: '>=0.4.0'
+    hasBin: true
+    resolution:
+      integrity: sha512-nQyp0o1/mNdbTO1PO6kHkwSrmgZ0MT/jCCpNiwbUjGoRN4dlBhqJtoQuCnEOKzgTVwg0ZWiCoQy6SxMebQVh8A==
+  /estree-walker/0.6.1:
+    dev: true
+    resolution:
+      integrity: sha512-SqmZANLWS0mnatqbSfRP5g8OXZC12Fgg1IwNtLsyHDzJizORW4khDfjPqJZsemPWBB2uqykUah5YpQ6epsqC/w==
+  /flatpickr/4.6.9:
+    dev: false
+    resolution:
+      integrity: sha512-F0azNNi8foVWKSF+8X+ZJzz8r9sE1G4hl06RyceIaLvyltKvDl6vqk9Lm/6AUUCi5HWaIjiUbk7UpeE/fOXOpw==
+  /require-relative/0.8.7:
+    dev: true
+    resolution:
+      integrity: sha1-eZlTn8ngR6N5KPoZb44VY9q9Nt4=
+  /rollup-plugin-svelte/5.2.3_rollup@1.32.1+svelte@3.38.2:
+    dependencies:
+      require-relative: 0.8.7
+      rollup: 1.32.1
+      rollup-pluginutils: 2.8.2
+      sourcemap-codec: 1.4.8
+      svelte: 3.38.2
+    dev: true
+    peerDependencies:
+      rollup: '>=0.60.0'
+      svelte: '*'
+    resolution:
+      integrity: sha512-513vOht9A93OV7fvmpIq8mD1JFgTZ5LidmpULKM2Od9P1l8oI5KwvO32fwCnASuVJS1EkRfvCnS7vKQ8DF4srg==
+  /rollup-pluginutils/2.8.2:
+    dependencies:
+      estree-walker: 0.6.1
+    dev: true
+    resolution:
+      integrity: sha512-EEp9NhnUkwY8aif6bxgovPHMoMoNr2FulJziTndpt5H9RdwC47GSGuII9XxpSdzVGM0GWrNPHV6ie1LTNJPaLQ==
+  /rollup/1.32.1:
+    dependencies:
+      '@types/estree': 0.0.47
+      '@types/node': 15.3.0
+      acorn: 7.4.1
+    dev: true
+    hasBin: true
+    resolution:
+      integrity: sha512-/2HA0Ec70TvQnXdzynFffkjA6XN+1e2pEv/uKS5Ulca40g2L7KuOE3riasHoNVHOsFD5KKZgDsMk1CP3Tw9s+A==
+  /sourcemap-codec/1.4.8:
+    dev: true
+    resolution:
+      integrity: sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==
+  /svelte/3.38.2:
+    dev: true
+    engines:
+      node: '>= 8'
+    resolution:
+      integrity: sha512-q5Dq0/QHh4BLJyEVWGe7Cej5NWs040LWjMbicBGZ+3qpFWJ1YObRmUDZKbbovddLC9WW7THTj3kYbTOFmU9fbg==
+specifiers:
+  flatpickr: ^4.5.2
+  rollup: ^1.10.1
+  rollup-plugin-svelte: ^5.0.3
+  svelte: ^3.0.0
