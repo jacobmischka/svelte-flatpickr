@@ -1,6 +1,6 @@
 <main>
 	<form on:submit={handleSubmit}>
-		<Flatpickr {options} bind:value bind:formattedValue on:change={handleChange} name="date" bind:flatpickr on:close={() => { console.log('closed'); }} />
+		<Flatpickr {options} bind:value bind:formattedValue on:change={handleChange} name="date" bind:flatpickr on:close={() => { console.log('closed'); }} dateFormat="Y-m-d" />
 
 		<button type="button" on:click={handleOpen}>
 			Open picker
@@ -15,7 +15,7 @@
 <script>
 	import Flatpickr from '../../src/Flatpickr.svelte';
 
-	let value, formattedValue, flatpickr;
+	let value = '2020-02-20', formattedValue, flatpickr;
 
 	const options = {
 		enableTime: true,
