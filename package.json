@@ -13,8 +13,8 @@
     "prepublishOnly": "yarn build"
   },
   "devDependencies": {
-    "rollup": "^1.10.1",
-    "rollup-plugin-svelte": "^5.0.3",
+    "rollup": "^2.47.0",
+    "rollup-plugin-svelte": "^7.1.0",
     "svelte": "^3.0.0"
   },
   "dependencies": {

@@ -4,6 +4,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import copy from 'rollup-plugin-copy';
+import css from 'rollup-plugin-css-only';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -37,15 +38,7 @@ export default {
 		file: 'public/build/bundle.js'
 	},
 	plugins: [
-		svelte({
-			// enable run-time checks when not in production
-			dev: !production,
-			// we'll extract any component CSS out into
-			// a separate file - better for performance
-			css: css => {
-				css.write('bundle.css');
-			}
-		}),
+		svelte(),
 
 		// If you have external dependencies installed from
 		// npm, you'll most likely need these plugins. In
@@ -63,6 +56,8 @@ export default {
 				{ src: '../node_modules/flatpickr/dist/flatpickr.css', dest: 'public/build' }
 			]
 		}),
+
+		css(),
 
 		// In dev mode, call `npm run start` once
 		// the bundle has been generated
