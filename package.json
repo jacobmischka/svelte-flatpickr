@@ -11,7 +11,7 @@
   "license": "MIT",
   "scripts": {
     "build": "rollup -c",
-    "prepublishOnly": "npm build"
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "rollup": "^2.47.0",
