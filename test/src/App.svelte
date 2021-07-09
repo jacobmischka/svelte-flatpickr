@@ -1,21 +1,9 @@
-<main>
-	<form on:submit={handleSubmit}>
-		<Flatpickr {options} bind:value bind:formattedValue on:change={handleChange} name="date" bind:flatpickr on:close={() => { console.log('closed'); }} dateFormat="Y-m-d" />
-
-		<button type="button" on:click={handleOpen}>
-			Open picker
-		</button>
-
-		<button type="submit">
-			Submit
-		</button>
-	</form>
-</main>
-
 <script>
 	import Flatpickr from '../../src/Flatpickr.svelte';
 
-	let value = '2020-02-20', formattedValue, flatpickr;
+	let value = '2020-02-20',
+		formattedValue,
+		flatpickr;
 
 	const options = {
 		enableTime: true,
@@ -24,7 +12,7 @@
 		},
 		onOpen() {
 			console.log('opened');
-		}
+		},
 	};
 
 	$: console.log({ value, formattedValue });
@@ -39,7 +27,7 @@
 	}
 
 	function handleChange(event) {
-		const [ selectedDates, dateStr ] = event.detail;
+		const [selectedDates, dateStr] = event.detail;
 		console.log({ selectedDates, dateStr });
 	}
 
@@ -49,6 +37,27 @@
 		console.log(event.target.elements['date'].value);
 	}
 </script>
+
+<main>
+	<form on:submit={handleSubmit}>
+		<Flatpickr
+			{options}
+			bind:value
+			bind:formattedValue
+			on:change={handleChange}
+			name="date"
+			bind:flatpickr
+			on:close={() => {
+				console.log('closed');
+			}}
+			dateFormat="Y-m-d"
+		/>
+
+		<button type="button" on:click={handleOpen}> Open picker </button>
+
+		<button type="submit"> Submit </button>
+	</form>
+</main>
 
 <style>
 	main {

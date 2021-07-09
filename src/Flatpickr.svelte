@@ -1,7 +1,3 @@
-<slot>
-	<input bind:this={input} {...$$restProps} />
-</slot>
-
 <script>
 	import { onMount, createEventDispatcher } from 'svelte';
 	import flatpickr from 'flatpickr';
@@ -17,11 +13,15 @@
 		'onDayCreate',
 	]);
 
-	export let value = '', formattedValue = '', element = null, dateFormat = null;
+	export let value = '',
+		formattedValue = '',
+		element = null,
+		dateFormat = null;
 	export let options = {};
 	let ready = false;
 
-	export let input = undefined, fp = undefined;
+	export let input = undefined,
+		fp = undefined;
 	export { fp as flatpickr };
 
 	$: if (fp && ready) {
@@ -38,7 +38,7 @@
 
 		fp = flatpickr(
 			elem,
-			Object.assign(opts, element ? {wrap: true} : {}),
+			Object.assign(opts, element ? { wrap: true } : {})
 		);
 
 		return () => {
@@ -79,7 +79,10 @@
 	}
 
 	function updateValue(newValue, dateStr) {
-		value = Array.isArray(newValue) && newValue.length === 1 ? newValue[0] : newValue;
+		value =
+			Array.isArray(newValue) && newValue.length === 1
+				? newValue[0]
+				: newValue;
 		formattedValue = dateStr;
 	}
 
@@ -87,3 +90,7 @@
 		return hook.charAt(2).toLowerCase() + hook.substring(3);
 	}
 </script>
+
+<slot>
+	<input bind:this={input} {...$$restProps} />
+</slot>

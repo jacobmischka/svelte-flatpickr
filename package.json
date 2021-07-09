@@ -1,31 +1,31 @@
 {
-  "name": "svelte-flatpickr",
-  "version": "3.2.0",
-  "description": "Flatpickr component for Svelte",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.js",
-  "svelte": "src/Flatpickr.svelte",
-  "types": "src/types.d.ts",
-  "repository": "https://github.com/jacobmischka/svelte-flatpickr.git",
-  "author": "Jacob Mischka <jacob@mischka.me>",
-  "license": "MIT",
-  "scripts": {
-    "build": "rollup -c",
-    "prepublishOnly": "npm run build"
-  },
-  "devDependencies": {
-    "rollup": "^2.47.0",
-    "rollup-plugin-svelte": "^7.1.0",
-    "svelte": "^3.0.0"
-  },
-  "dependencies": {
-    "flatpickr": "^4.5.2"
-  },
-  "peerDependencies": {
-    "svelte": "^3.31.0"
-  },
-  "files": [
-    "dist",
-    "src"
-  ]
+	"name": "svelte-flatpickr",
+	"version": "3.2.0",
+	"description": "Flatpickr component for Svelte",
+	"main": "dist/index.cjs.js",
+	"module": "dist/index.js",
+	"svelte": "src/Flatpickr.svelte",
+	"types": "src/types.d.ts",
+	"repository": "https://github.com/jacobmischka/svelte-flatpickr.git",
+	"author": "Jacob Mischka <jacob@mischka.me>",
+	"license": "MIT",
+	"scripts": {
+		"build": "rollup -c",
+		"prepublishOnly": "npm run build",
+		"format": "prettier --write --plugin-search-dir=. ./src/* ./test/src/*"
+	},
+	"devDependencies": {
+		"prettier": "^2.3.2",
+		"prettier-plugin-svelte": "^2.3.1",
+		"rollup": "^2.47.0",
+		"rollup-plugin-svelte": "^7.1.0",
+		"svelte": "^3.0.0"
+	},
+	"dependencies": {
+		"flatpickr": "^4.5.2"
+	},
+	"peerDependencies": {
+		"svelte": "^3.31.0"
+	},
+	"files": ["dist", "src"]
 }
