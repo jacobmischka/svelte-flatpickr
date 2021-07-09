@@ -22,7 +22,7 @@
     "flatpickr": "^4.5.2"
   },
   "peerDependencies": {
-    "svelte": "^3.0.0"
+    "svelte": "^3.31.0"
   },
   "files": [
     "dist",

@@ -4,7 +4,7 @@ import flatpickr from 'flatpickr';
 export type HookProps = [ Date[], string, flatpickr.Instance ];
 
 declare module 'svelte-flatpickr' {
-  interface SvelteFlatpickrProps {
+  export interface SvelteFlatpickrProps {
 	  value?: Date | string;
 	  formattedValue?: string;
 	  element?: HTMLInputElement | string;
@@ -12,6 +12,7 @@ declare module 'svelte-flatpickr' {
 	  options?: flatpickr.Options.Options;
 	  input?: HTMLInputElement | string;
 	  fp?: flatpickr.Instance;
+	  flatpickr?: flatpickr.Instance;
   }
 
   class Flatpickr extends SvelteComponentTyped<SvelteFlatpickrProps, {
