@@ -1,7 +1,7 @@
 /// <reference lib="dom" />
 /* eslint @typescript-eslint/no-unused-vars: off */
 /**
- * Adapted from jsx-dom
+ * Adapted from svelte2tsx
  * @see https://github.com/sveltejs/language-tools/blob/52904b65b16a160050bd6765033067f52438ddb4/packages/svelte2tsx/svelte-jsx.d.ts
  *
  * which was adapted from
