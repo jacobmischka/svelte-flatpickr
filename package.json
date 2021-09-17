@@ -19,7 +19,8 @@
 		"prettier-plugin-svelte": "^2.3.1",
 		"rollup": "^2.47.0",
 		"rollup-plugin-svelte": "^7.1.0",
-		"svelte": "^3.0.0"
+		"svelte": "^3.0.0",
+		"svelte2tsx": "^0.4.6"
 	},
 	"dependencies": {
 		"flatpickr": "^4.5.2"
@@ -27,5 +28,8 @@
 	"peerDependencies": {
 		"svelte": "^3.31.0"
 	},
-	"files": ["dist", "src"]
+	"files": [
+		"dist",
+		"src"
+	]
 }

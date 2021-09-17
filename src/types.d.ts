@@ -1,3 +1,5 @@
+/// <reference path="./svelte-jsx.d.ts" />
+
 import { SvelteComponentTyped } from 'svelte';
 import flatpickr from 'flatpickr';
 
@@ -16,7 +18,7 @@ declare module 'svelte-flatpickr' {
 	}
 
 	class Flatpickr extends SvelteComponentTyped<
-		SvelteFlatpickrProps,
+		SvelteFlatpickrProps & svelte.JSX.SvelteInputProps,
 		{
 			change: CustomEvent<HookProps>;
 			open: CustomEvent<HookProps>;
