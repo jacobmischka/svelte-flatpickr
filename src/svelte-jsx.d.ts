@@ -2,6 +2,11 @@
 /* eslint @typescript-eslint/no-unused-vars: off */
 /**
  * Adapted from jsx-dom
+ * @see https://github.com/sveltejs/language-tools/blob/52904b65b16a160050bd6765033067f52438ddb4/packages/svelte2tsx/svelte-jsx.d.ts
+ *
+ * which was adapted from
+ *
+ * Adapted from jsx-dom
  * @see https://github.com/proteriax/jsx-dom/blob/be06937ba16908d87bf8aa4372a3583133e02b8a/index.d.ts
  *
  * which was adapted from
@@ -564,7 +569,8 @@ declare namespace svelte.JSX {
       title?: string;
       type?: string;
       usemap?: string;
-      value?: string | string[] | number | null;
+	  // Disabled because of conflict with SvelteFlatpickrProps
+      // value?: string | string[] | number | null;
       /**
        * a value between 0 and 1
       */
