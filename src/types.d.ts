@@ -18,7 +18,7 @@ declare module 'svelte-flatpickr' {
 	}
 
 	class Flatpickr extends SvelteComponentTyped<
-		SvelteFlatpickrProps & svelte.JSX.SvelteInputProps,
+		SvelteFlatpickrProps & svelteFlatpickr.JSX.SvelteInputProps,
 		{
 			change: CustomEvent<HookProps>;
 			open: CustomEvent<HookProps>;
