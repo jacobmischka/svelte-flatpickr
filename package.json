@@ -6,6 +6,7 @@
 	"module": "dist/index.js",
 	"svelte": "src/Flatpickr.svelte",
 	"types": "src/types.d.ts",
+	"homepage": "https://github.com/jacobmischka/svelte-flatpickr",
 	"repository": "https://github.com/jacobmischka/svelte-flatpickr.git",
 	"author": "Jacob Mischka <jacob@mischka.me>",
 	"license": "MIT",
