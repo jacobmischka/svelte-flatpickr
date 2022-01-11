@@ -78,11 +78,10 @@
 		return opts;
 	}
 
-	function updateValue(newValue, dateStr) {
-		value =
-			Array.isArray(newValue) && newValue.length <= 1
-				? newValue[0]
-				: newValue;
+	function updateValue(newValue, dateStr, fp) {
+		const mode = fp?.config?.mode ?? 'single';
+
+		value = mode === 'single' ? newValue[0] : newValue;
 		formattedValue = dateStr;
 	}
 

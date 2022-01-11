@@ -5,7 +5,11 @@
 		formattedValue,
 		flatpickr;
 
-	const options = {
+	let multiple = false;
+
+	let options;
+	$: options = {
+		mode: multiple ? 'multiple' : 'single',
 		enableTime: true,
 		onChange(selectedDates, dateStr) {
 			console.log('flatpickr hook', selectedDates, dateStr);
@@ -58,6 +62,11 @@
 			}}
 			dateFormat="Y-m-d"
 		/>
+
+		<label>
+			<input type="checkbox" bind:checked={multiple} />
+			Multiple?
+		</label>
 
 		<button type="button" on:click={handleClear}>
 			Clear
