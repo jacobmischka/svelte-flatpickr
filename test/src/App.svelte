@@ -31,6 +31,12 @@
 		console.log({ selectedDates, dateStr });
 	}
 
+	function handleClear() {
+		if (flatpickr) {
+			flatpickr.clear();
+		}
+	}
+
 	function handleSubmit(event) {
 		event.preventDefault();
 
@@ -53,9 +59,16 @@
 			dateFormat="Y-m-d"
 		/>
 
-		<button type="button" on:click={handleOpen}> Open picker </button>
+		<button type="button" on:click={handleClear}>
+			Clear
+		</button>
+		<button type="button" on:click={handleOpen}>
+			Open picker
+		</button>
 
-		<button type="submit"> Submit </button>
+		<button type="submit">
+			Submit
+		</button>
 	</form>
 </main>
 
