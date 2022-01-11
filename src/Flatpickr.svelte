@@ -82,7 +82,7 @@
 		value =
 			Array.isArray(newValue) && newValue.length === 1
 				? newValue[0]
-				: newValue;
+				: '';
 		formattedValue = dateStr;
 	}
 
