@@ -18,9 +18,9 @@ Don't forget to import flatpickr's stylesheets as well
 
 ## Flatpickr documentation
 
-- [Examples](https://flatpickr.js.org/examples/)
-- [Events and hooks](https://flatpickr.js.org/events/)
-- [Configuration options](https://flatpickr.js.org/options/)
+-   [Examples](https://flatpickr.js.org/examples/)
+-   [Events and hooks](https://flatpickr.js.org/events/)
+-   [Configuration options](https://flatpickr.js.org/options/)
 
 ### Example
 
@@ -28,40 +28,40 @@ See the `test` directory for a full working example.
 
 ```svelte
 <main>
-	<form on:submit={handleSubmit}>
-		<Flatpickr {options} bind:value bind:formattedValue on:change={handleChange} name="date" />
+    <form on:submit={handleSubmit}>
+        <Flatpickr {options} bind:value bind:formattedValue on:change={handleChange} name="date" />
 
-		<button type="submit">
-			Submit
-		</button>
-	</form>
+        <button type="submit">
+            Submit
+        </button>
+    </form>
 </main>
 
 <script>
-	import Flatpickr from 'svelte-flatpickr';
-	import 'flatpickr/dist/flatpickr.css';
+    import Flatpickr from 'svelte-flatpickr';
+    import 'flatpickr/dist/flatpickr.css';
 
-	let value, formattedValue;
+    let value, formattedValue;
 
-	const options = {
-		enableTime: true,
-		onChange(selectedDates, dateStr) {
-			console.log('flatpickr hook', selectedDates, dateStr);
-		}
-	};
+    const options = {
+        enableTime: true,
+        onChange(selectedDates, dateStr) {
+            console.log('flatpickr hook', selectedDates, dateStr);
+        }
+    };
 
-	$: console.log({ value, formattedValue });
+    $: console.log({ value, formattedValue });
 
-	function handleChange(event) {
-		const [ selectedDates, dateStr ] = event.detail;
-		console.log({ selectedDates, dateStr });
-	}
+    function handleChange(event) {
+        const [ selectedDates, dateStr ] = event.detail;
+        console.log({ selectedDates, dateStr });
+    }
 
-	function handleSubmit(event) {
-		event.preventDefault();
+    function handleSubmit(event) {
+        event.preventDefault();
 
-		console.log(event.target.elements['date'].value);
-	}
+        console.log(event.target.elements['date'].value);
+    }
 </script>
 ```
 
@@ -81,7 +81,6 @@ Hooks can be specified normally in the options object, or by listening to the sv
 
 When binding svelte handler, `event.details` will be `[ selectedDates, dateStr, instance ]` (see [flatpickr events docs](https://chmln.github.io/flatpickr/events/)).
 
-
 ### External Elements
 
 As per the [flatpickr documentation](https://flatpickr.js.org/examples/#flatpickr-external-elements), it is also possible to wrap a custom element rather than have the component create the input for you. This allows for decoration of the control such as adding a clear button or similar.
@@ -91,25 +90,29 @@ You can add the custom element by wrapping it in the Flatpickr component, as it 
 Specifying the selector for a custom element automatically adds the `{wrap: true}` option to flatpickr.
 
 ```html
-<Flatpickr options="{ flatpickrOptions }" bind:value={date} element="#my-picker">
-		<div class="flatpickr" id="my-picker">
-			<input type="text" placeholder="Select Date.." data-input>
+<Flatpickr
+	options="{ flatpickrOptions }"
+	bind:value="{date}"
+	element="#my-picker"
+>
+	<div class="flatpickr" id="my-picker">
+		<input type="text" placeholder="Select Date.." data-input />
 
-			<a class="input-button" title="clear" data-clear>
-					<i class="icon-close"></i>
-			</a>
-		</div>
+		<a class="input-button" title="clear" data-clear>
+			<i class="icon-close"></i>
+		</a>
+	</div>
 </Flatpickr>
 
 <script>
-	import Flatpickr from 'svelte-flatpickr'
+	import Flatpickr from 'svelte-flatpickr';
 
-	import 'flatpickr/dist/flatpickr.css'
-	import 'flatpickr/dist/themes/light.css'
+	import 'flatpickr/dist/flatpickr.css';
+	import 'flatpickr/dist/themes/light.css';
 
-	let date = null
+	let date = null;
 	const flatpickrOptions = {
-		element: '#my-picker'
-	}
+		element: '#my-picker',
+	};
 </script>
 ```
