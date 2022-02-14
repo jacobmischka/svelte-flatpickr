@@ -91,28 +91,28 @@ Specifying the selector for a custom element automatically adds the `{wrap: true
 
 ```html
 <Flatpickr
-	options="{ flatpickrOptions }"
-	bind:value="{date}"
-	element="#my-picker"
+    options="{ flatpickrOptions }"
+    bind:value="{date}"
+    element="#my-picker"
 >
-	<div class="flatpickr" id="my-picker">
-		<input type="text" placeholder="Select Date.." data-input />
+    <div class="flatpickr" id="my-picker">
+        <input type="text" placeholder="Select Date.." data-input />
 
-		<a class="input-button" title="clear" data-clear>
-			<i class="icon-close"></i>
-		</a>
-	</div>
+        <a class="input-button" title="clear" data-clear>
+            <i class="icon-close"></i>
+        </a>
+    </div>
 </Flatpickr>
 
 <script>
-	import Flatpickr from 'svelte-flatpickr';
+    import Flatpickr from 'svelte-flatpickr';
 
-	import 'flatpickr/dist/flatpickr.css';
-	import 'flatpickr/dist/themes/light.css';
+    import 'flatpickr/dist/flatpickr.css';
+    import 'flatpickr/dist/themes/light.css';
 
-	let date = null;
-	const flatpickrOptions = {
-		element: '#my-picker',
-	};
+    let date = null;
+    const flatpickrOptions = {
+        element: '#my-picker',
+    };
 </script>
 ```
