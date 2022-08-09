@@ -24,7 +24,7 @@
 		fp = undefined;
 	export { fp as flatpickr };
 
-	$: if (fp && ready) {
+	$: if (fp && ready && value) {
 		fp.setDate(value, false, dateFormat);
 	}
 
