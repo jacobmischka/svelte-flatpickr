@@ -1,7 +1,7 @@
 <script>
 	import Flatpickr from '../../src/Flatpickr.svelte';
 
-	let value = null,
+	let value = undefined,
 		formattedValue,
 		flatpickr;
 
@@ -9,7 +9,8 @@
 
 	let options;
 	$: options = {
-		mode: multiple ? 'multiple' : 'single',
+		mode: 'range',
+		defaultDate: ['2022-03-01', '2022-03-04'],
 		enableTime: true,
 		onChange(selectedDates, dateStr) {
 			console.log('flatpickr hook', selectedDates, dateStr);

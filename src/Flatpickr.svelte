@@ -27,7 +27,7 @@
 	$: if (fp && ready) {
 		if (value) {
 			fp.setDate(value, false, dateFormat);
-		} else {
+		} else if (value === null) {
 			fp.clear(false);
 		}
 	}
