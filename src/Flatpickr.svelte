@@ -13,10 +13,10 @@
 		'onDayCreate',
 	]);
 
-	export let value = '',
+	export let value = undefined,
 		formattedValue = '',
-		element = null,
-		dateFormat = null;
+		element = undefined,
+		dateFormat = undefined;
 	export let options = {};
 	let ready = false;
 
@@ -25,11 +25,15 @@
 	export { fp as flatpickr };
 
 	$: if (fp && ready) {
-		fp.setDate(value, false, dateFormat);
+		if (value) {
+			fp.setDate(value, false, dateFormat);
+		} else {
+			fp.clear(false);
+		}
 	}
 
 	onMount(() => {
-		const elem = element || input;
+		const elem = element ?? input;
 
 		const opts = addHooks(options);
 		opts.onReady.push(() => {

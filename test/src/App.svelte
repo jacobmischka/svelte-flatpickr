@@ -1,7 +1,7 @@
 <script>
 	import Flatpickr from '../../src/Flatpickr.svelte';
 
-	let value = '2020-02-20',
+	let value = null,
 		formattedValue,
 		flatpickr;
 

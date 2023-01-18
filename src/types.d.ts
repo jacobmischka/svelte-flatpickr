@@ -7,7 +7,7 @@ export type HookProps = [Date[], string, flatpickr.Instance];
 
 declare module 'svelte-flatpickr' {
 	export interface SvelteFlatpickrProps {
-		value?: Date | string | Date [];
+		value?: Date | string | Date[] | null;
 		formattedValue?: string;
 		element?: HTMLInputElement | string;
 		dateFormat?: string;
