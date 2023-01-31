@@ -24,11 +24,11 @@
 		fp = undefined;
 	export { fp as flatpickr };
 
-	$: if (fp && ready) {
-		if (value) {
-			fp.setDate(value, false, dateFormat);
-		} else if (value === "" || value === null) {
-			fp.clear(false);
+	$: setDate(value);
+
+	function setDate(val) {
+		if (fp && ready) {
+			fp.setDate(val, false, dateFormat);
 		}
 	}
 
@@ -38,6 +38,10 @@
 		const opts = addHooks(options);
 		opts.onReady.push(() => {
 			ready = true;
+
+			if (value) {
+				setDate(value)
+			}
 		});
 
 		fp = flatpickr(

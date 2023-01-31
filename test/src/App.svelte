@@ -42,8 +42,16 @@
 		}
 	}
 
-	function handleEmptyString() {
-		value = "";
+	function handleEmptyValue() {
+		value = multiple ? [] : "";
+	}
+
+	function handleSetValue() {
+		if (multiple) {
+			value = [new Date("2023-01-01"), new Date()];
+		} else {
+			value = new Date();
+		}
 	}
 
 	function handleSubmit(event) {
@@ -76,8 +84,11 @@
 		<button type="button" on:click={handleClear}>
 			Clear
 		</button>
-		<button type="button" on:click={handleEmptyString}>
-			Empty string
+		<button type="button" on:click={handleEmptyValue}>
+			Empty value
+		</button>
+		<button type="button" on:click={handleSetValue}>
+			Set value
 		</button>
 		<button type="button" on:click={handleOpen}>
 			Open picker
