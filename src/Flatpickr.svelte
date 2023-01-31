@@ -39,7 +39,9 @@
 		opts.onReady.push((selectedDates, dateStr, instance) => {
 			ready = true;
 
-			if (value) {
+			const hasValue = value instanceof Array ? value.length > 0 : !!value;
+
+			if (hasValue) {
 				setDate(value);
 			} else if (dateStr) {
 				// set defaultDate
