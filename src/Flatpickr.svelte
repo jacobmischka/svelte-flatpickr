@@ -88,7 +88,8 @@
 
 	function updateValue(newValue, dateStr, fp) {
 		const newModeValue = getModeValue(fp, newValue);
-		if (!areValuesEqual(value, newModeValue)) {
+		// If both are already falsey, don't perform prop update
+		if (!areValuesEqual(value, newModeValue) && (value || newModeValue)) {
 			value = newModeValue;
 		}
 

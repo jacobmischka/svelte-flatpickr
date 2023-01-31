@@ -20,7 +20,7 @@
 		},
 	};
 
-	$: console.log({ value, formattedValue });
+	$: console.log({ value });
 
 	function handleOpen(event) {
 		event.preventDefault();
