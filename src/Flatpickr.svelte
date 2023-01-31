@@ -36,11 +36,14 @@
 		const elem = element ?? input;
 
 		const opts = addHooks(options);
-		opts.onReady.push(() => {
+		opts.onReady.push((selectedDates, dateStr, instance) => {
 			ready = true;
 
 			if (value) {
-				setDate(value)
+				setDate(value);
+			} else if (dateStr) {
+				// set defaultDate
+				updateValue(selectedDates, dateStr, instance);
 			}
 		});
 
