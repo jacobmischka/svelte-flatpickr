@@ -42,6 +42,10 @@
 		}
 	}
 
+	function handleEmptyString() {
+		value = "";
+	}
+
 	function handleSubmit(event) {
 		event.preventDefault();
 
@@ -71,6 +75,9 @@
 
 		<button type="button" on:click={handleClear}>
 			Clear
+		</button>
+		<button type="button" on:click={handleEmptyString}>
+			Empty string
 		</button>
 		<button type="button" on:click={handleOpen}>
 			Open picker
