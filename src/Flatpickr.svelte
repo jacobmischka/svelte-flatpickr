@@ -1,5 +1,5 @@
 <script>
-	import { onMount, createEventDispatcher } from 'svelte';
+	import { onMount, createEventDispatcher, tick } from 'svelte';
 	import flatpickr from 'flatpickr';
 
 	const hooks = new Set([
@@ -25,10 +25,8 @@
 	export { fp as flatpickr };
 
 	$: if (fp && ready) {
-		if (value) {
-			fp.setDate(value, false, dateFormat);
-		} else if (value === null) {
-			fp.clear(false);
+		if (!areValuesEqual(value, getModeValue(fp, fp.selectedDates))) {
+			fp.setDate(value, true, dateFormat);
 		}
 	}
 
@@ -36,8 +34,14 @@
 		const elem = element ?? input;
 
 		const opts = addHooks(options);
-		opts.onReady.push(() => {
-			ready = true;
+		opts.onReady.push((selectedDates, dateStr, instance) => {
+			if (value === undefined) {
+				updateValue(selectedDates, dateStr, instance);
+			}
+
+			tick().then(() => {
+				ready = true;
+			});
 		});
 
 		fp = flatpickr(
@@ -83,14 +87,40 @@
 	}
 
 	function updateValue(newValue, dateStr, fp) {
-		const mode = fp?.config?.mode ?? 'single';
+		const newModeValue = getModeValue(fp, newValue);
+		if (!areValuesEqual(value, newModeValue)) {
+			value = newModeValue;
+		}
 
-		value = mode === 'single' ? newValue[0] : newValue;
 		formattedValue = dateStr;
 	}
 
 	function stripOn(hook) {
 		return hook.charAt(2).toLowerCase() + hook.substring(3);
+	}
+
+	function getModeValue(instance, selectedDates) {
+		const mode = instance?.config?.mode ?? 'single';
+		return mode === 'single' ? selectedDates[0] : selectedDates;
+	}
+
+	function areValuesEqual(v1, v2) {
+		if (v1 == v2) return true;
+
+		if (v1 instanceof Date && v2 instanceof Date && v1.valueOf() === v2.valueOf()) {
+			return true;
+		}
+
+		if (
+			Array.isArray(v1)
+			&& Array.isArray(v2)
+			&& v1.length === v2.length
+			&& v1.every((val, i) => val === v2[i])
+		) {
+			return true;
+		}
+
+		return false;
 	}
 </script>
 

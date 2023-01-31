@@ -5,12 +5,12 @@
 		formattedValue,
 		flatpickr;
 
-	let multiple = false;
+	let mode = 'single';
 
 	let options;
 	$: options = {
-		mode: 'range',
-		defaultDate: ['2022-03-01', '2022-03-04'],
+		mode,
+		defaultDate: mode === 'single' ? '2021-01-01' : ['2022-03-01', '2022-03-04'],
 		enableTime: true,
 		onChange(selectedDates, dateStr) {
 			console.log('flatpickr hook', selectedDates, dateStr);
@@ -64,13 +64,34 @@
 			dateFormat="Y-m-d"
 		/>
 
-		<label>
-			<input type="checkbox" bind:checked={multiple} />
-			Multiple?
-		</label>
+		<fieldset>
+			<legend>Mode</legend>
+
+			<label>
+				<input type="radio" bind:group={mode} value="single" />
+				Single
+			</label>
+			<label>
+				<input type="radio" bind:group={mode} value="multiple" />
+				Multiple
+			</label>
+			<label>
+				<input type="radio" bind:group={mode} value="range" />
+				Range
+			</label>
+		</fieldset>
 
 		<button type="button" on:click={handleClear}>
 			Clear
+		</button>
+		<button type="button" on:click={() => { value = undefined; }}>
+			Undefine
+		</button>
+		<button type="button" on:click={() => { value = []; }}>
+			Empty
+		</button>
+		<button type="button" on:click={() => { value = ""; }}>
+			Empty string
 		</button>
 		<button type="button" on:click={handleOpen}>
 			Open picker
@@ -87,5 +108,9 @@
 		text-align: center;
 		padding: 1em;
 		margin: 0 auto;
+	}
+
+	fieldset {
+		display: inline-block;
 	}
 </style>
