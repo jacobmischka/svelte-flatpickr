@@ -111,8 +111,6 @@ Specifying the selector for a custom element automatically adds the `{wrap: true
     import 'flatpickr/dist/themes/light.css';
 
     let date = null;
-    const flatpickrOptions = {
-        element: '#my-picker',
-    };
+    const flatpickrOptions = {};
 </script>
 ```
