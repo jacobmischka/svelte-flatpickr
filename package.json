@@ -11,23 +11,27 @@
 	"author": "Jacob Mischka <jacob@mischka.me>",
 	"license": "MIT",
 	"scripts": {
-		"build": "rollup -c",
+		"build": "rollup -c --bundleConfigAsCjs",
 		"prepublishOnly": "npm run build",
 		"format": "prettier --write --plugin-search-dir=. ./src/* ./test/src/*"
 	},
 	"devDependencies": {
-		"prettier": "^2.3.2",
-		"prettier-plugin-svelte": "^2.3.1",
-		"rollup": "^2.47.0",
-		"rollup-plugin-svelte": "^7.1.0",
-		"svelte": "^3.0.0",
-		"svelte2tsx": "^0.4.6"
+		"prettier": "^3.0.0",
+		"prettier-plugin-svelte": "^3.0.3",
+		"rollup": "^3.28.1",
+		"rollup-plugin-svelte": "^7.1.6",
+		"svelte": "^4.0.0"
 	},
 	"dependencies": {
 		"flatpickr": "^4.5.2"
 	},
 	"peerDependencies": {
-		"svelte": ">= 3.31.0 < 4.1"
+		"svelte": ">= 3.31.0 < 5.0"
 	},
-	"files": ["dist", "src"]
+	"files": ["dist", "src"],
+	"exports": {
+		".": {
+			"svelte": "./src/Flatpickr.svelte"
+		}
+	}
 }
