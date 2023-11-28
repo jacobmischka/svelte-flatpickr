@@ -31,7 +31,8 @@
 	"files": ["dist", "src"],
 	"exports": {
 		".": {
-			"svelte": "./src/Flatpickr.svelte"
+			"svelte": "./src/Flatpickr.svelte",
+			"types": "./src/types.d.ts"
 		}
 	}
 }
