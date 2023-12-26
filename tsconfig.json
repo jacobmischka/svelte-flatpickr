@@ -8,5 +8,5 @@
 		"strict": true,
 		"target": "ES2022"
 	},
-	"include": ["**/*.js", "**/*.ts", "**/*.svelte", ".eslintrc.cjs"]
+	"include": ["**/*.js", "**/*.ts", "**/*.svelte"]
 }
