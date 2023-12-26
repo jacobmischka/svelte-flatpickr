@@ -7,12 +7,12 @@
 	"author": "Jacob Mischka <jacob@mischka.me>",
 	"license": "MIT",
 	"type": "module",
-	"types": "src/types.d.ts",
-	"svelte": "./src/Flatpickr.svelte",
+	"types": "dist/types.d.ts",
+	"svelte": "./dist/Flatpickr.svelte",
 	"exports": {
 		".": {
-			"types": "./src/types.d.ts",
-			"svelte": "./src/Flatpickr.svelte"
+			"types": "./dist/types.d.ts",
+			"svelte": "./dist/Flatpickr.svelte"
 		},
 		"./package.json": "./package.json"
 	},
