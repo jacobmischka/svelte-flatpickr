@@ -3,5 +3,6 @@
 	"useTabs": true,
 	"semi": true,
 	"singleQuote": true,
-	"arrowParens": "avoid"
+	"arrowParens": "avoid",
+	"plugins": ["prettier-plugin-svelte"]
 }

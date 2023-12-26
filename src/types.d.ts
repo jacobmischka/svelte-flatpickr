@@ -1,5 +1,3 @@
-/// <reference path="./svelte-jsx.d.ts" />
-
 import { SvelteComponentTyped } from 'svelte';
 import flatpickr from 'flatpickr';
 
