@@ -23,7 +23,6 @@
 	},
 	"devDependencies": {
 		"@sveltejs/package": "^2.2.5",
-		"@sveltejs/vite-plugin-svelte": "^3.0.1",
 		"prettier": "^3.0.0",
 		"prettier-plugin-svelte": "^3.0.3",
 		"publint": "^0.2.7",
