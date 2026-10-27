@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       flatpickr:
-        specifier: ^4.5.2
-        version: 4.6.9
+        specifier: npm:flatpickr-ce@^4.7.0
+        version: flatpickr-ce@4.7.0
     devDependencies:
       prettier:
         specifier: ^3.0.0
@@ -87,8 +87,8 @@ packages:
   estree-walker@3.0.3:
     resolution: {integrity: sha512-7RUKfXgSMMkzt6ZuXmqapOurLGPPfgj6l9uRZ7lRGolvk0y2yocc35LdcxKC5PQZdn2DMqioAQ2NoWcrTKmm6g==}
 
-  flatpickr@4.6.9:
-    resolution: {integrity: sha512-F0azNNi8foVWKSF+8X+ZJzz8r9sE1G4hl06RyceIaLvyltKvDl6vqk9Lm/6AUUCi5HWaIjiUbk7UpeE/fOXOpw==}
+  flatpickr-ce@4.7.0:
+    resolution: {integrity: sha512-zhQkhXkox1NbHNy79QfNahb7VCJ9lPvBxADwQ20cmBvTvdvAKS+sdwRgOjp9mWwqPQDef0vzHPw6GPu1dIyYsw==}
 
   fsevents@2.3.3:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
@@ -212,7 +212,7 @@ snapshots:
     dependencies:
       '@types/estree': 1.0.1
 
-  flatpickr@4.6.9: {}
+  flatpickr-ce@4.7.0: {}
 
   fsevents@2.3.3:
     optional: true

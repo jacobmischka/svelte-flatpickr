@@ -23,7 +23,7 @@
 		"svelte": "^4.0.0"
 	},
 	"dependencies": {
-		"flatpickr": "^4.5.2"
+		"flatpickr": "npm:flatpickr-ce@^4.7.0"
 	},
 	"peerDependencies": {
 		"svelte": ">= 3.31.0 < 5.0"
